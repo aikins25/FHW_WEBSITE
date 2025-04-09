@@ -1,0 +1,1975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fit Home Well | Empowering Youth Through Digital Skills</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary: #2a7fba;
+            --secondary: #f8f9fa;
+            --accent: #ff6b6b;
+            --dark: #343a40;
+            --light: #ffffff;
+            --text: #495057;
+            --cream: #f9f5f0;
+            --navy: #1a365d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .fhw-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.fhw-loader.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loader-container {
+  text-align: center;
+}
+
+.logo-animation {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.logo-animation span {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--navy);
+  opacity: 0;
+  transform: translateY(20px);
+  display: inline-block;
+}
+
+.letter-f {
+  animation: fadeInUp 0.8s 0.1s forwards, pulse 2s 1.5s infinite;
+}
+
+.letter-h {
+  animation: fadeInUp 0.8s 0.3s forwards, pulse 2s 1.7s infinite;
+}
+
+.letter-w {
+  animation: fadeInUp 0.8s 0.5s forwards, pulse 2s 1.9s infinite;
+}
+
+.loading-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  position: relative;
+  overflow: hidden;
+}
+
+.loading-text::after {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  animation: loadingBar 2.5s ease-in-out infinite;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes loadingBar {
+  0% {
+    width: 0;
+    left: 0;
+  }
+  50% {
+    width: 100%;
+    left: 0;
+  }
+  100% {
+    width: 0;
+    left: 100%;
+  }
+}
+
+/* For mobile responsiveness */
+@media (max-width: 768px) {
+  .logo-animation span {
+    font-size: 3rem;
+  }
+  .loading-text {
+    font-size: 0.8rem;
+  }
+}
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--cream);
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--navy);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background: #1e6fa0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary);
+        }
+        
+        .section-subtitle {
+            color: var(--primary);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .section-description {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            text-align: center;
+            color: var(--text);
+        }
+        
+        /* Header Styles */
+        header {
+            background: var(--light);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--navy);
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .logo span {
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 1rem;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 54, 93, 0.8), rgba(26, 54, 93, 0.8)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .hero-btns .btn {
+            margin: 0 10px;
+        }
+        
+        .hero-btns .btn-outline {
+            border-color: white;
+            color: white;
+        }
+        
+        .hero-btns .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+        
+        /* Stats Section */
+        .stats {
+            padding: 80px 0;
+            background: var(--light);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .stat-item {
+            padding: 30px 20px;
+            background: var(--cream);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .stat-text {
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+        
+        /* Mission Section */
+        .mission {
+            padding: 80px 0;
+            background: var(--cream);
+        }
+        
+        .mission-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .mission-img {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mission-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .mission-text h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .mission-text p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .mission-values {
+            margin-top: 2rem;
+        }
+        
+        .value-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        
+        .value-icon {
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 0;
+            background: var(--light);
+        }
+        
+        .testimonials-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-card {
+            background: var(--cream);
+            padding: 40px;
+            border-radius: 8px;
+            margin: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        .testimonial-content {
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            position: relative;
+            font-size: 1.1rem;
+        }
+        
+        .testimonial-content::before,
+        .testimonial-content::after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--primary);
+            opacity: 0.3;
+            position: absolute;
+        }
+        
+        .testimonial-content::before {
+            top: -20px;
+            left: -10px;
+        }
+        
+        .testimonial-content::after {
+            bottom: -40px;
+            right: -10px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 1rem;
+        }
+        
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: var(--dark);
+        }
+        
+        .author-info p {
+            color: var(--text);
+            font-size: 0.9rem;
+        }
+        
+        /* Programs Section */
+        .programs {
+            padding: 80px 0;
+            background: var(--cream);
+        }
+        
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .program-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .program-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .program-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .program-card:hover .program-img img {
+            transform: scale(1.1);
+        }
+        
+        .program-content {
+            padding: 25px;
+        }
+        
+        .program-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--navy);
+        }
+        
+        .program-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .program-content a {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .program-content a i {
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+        
+        .program-content a:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* About Page Styles */
+        .about-hero {
+            background: linear-gradient(rgba(26, 54, 93, 0.8), rgba(26, 54, 93, 0.8)), url('https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80') no-repeat center center/cover;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+        }
+        
+        .about-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .history {
+            padding: 80px 0;
+            background: var(--light);
+        }
+        
+        .history-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .history-img {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .history-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .history-text h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .history-text p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .milestone {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        
+        .milestone-year {
+            background: var(--primary);
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .milestone-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Vision Mission Section */
+        .vision-mission {
+            padding: 80px 0;
+            background: var(--cream);
+        }
+        
+        .vm-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .vm-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .vm-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .vm-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Courses Page Styles */
+        .courses-hero {
+            background: linear-gradient(rgba(26, 54, 93, 0.8), rgba(26, 54, 93, 0.8)), url('https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80') no-repeat center center/cover;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+        }
+        
+        .courses {
+            padding: 80px 0;
+            background: var(--light);
+        }
+        
+        .course-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .course-header {
+            background: var(--navy);
+            color: white;
+            padding: 20px;
+        }
+        
+        .course-header h2 {
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+        
+        .course-header p {
+            opacity: 0.9;
+        }
+        
+        .course-content {
+            padding: 30px;
+        }
+        
+        .course-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .course-features {
+            margin: 20px 0;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .feature-item i {
+            color: var(--primary);
+            margin-right: 10px;
+        }
+        
+        .course-cta {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        /* Donation Page Styles */
+        .donation-hero {
+            background: linear-gradient(rgba(26, 54, 93, 0.8), rgba(26, 54, 93, 0.8)), url('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80') no-repeat center center/cover;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+        }
+        
+        .donation {
+            padding: 80px 0;
+            background: var(--light);
+        }
+        
+        .donation-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .donation-info h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .donation-info p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .impact-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+        
+        .impact-list li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .impact-list i {
+            color: var(--primary);
+            margin-right: 10px;
+            margin-top: 3px;
+        }
+        
+        .donation-form {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input, 
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .donation-amounts {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .amount-option {
+            text-align: center;
+        }
+        
+        .amount-option input {
+            display: none;
+        }
+        
+        .amount-option label {
+            display: block;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .amount-option input:checked + label {
+            border-color: var(--primary);
+            background: rgba(42, 127, 186, 0.1);
+        }
+        
+        .custom-amount {
+            margin-top: 10px;
+        }
+        
+        .donation-type {
+            margin-bottom: 1.5rem;
+        }
+        
+        .donation-type label {
+            margin-right: 20px;
+            cursor: pointer;
+        }
+        
+        .donation-type input {
+            margin-right: 5px;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background: #1e6fa0;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary);
+        }
+        
+        .footer-column p {
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            opacity: 0.8;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--primary);
+        }
+        
+        .footer-contact-info {
+            list-style: none;
+        }
+        
+        .footer-contact-info li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-contact-info i {
+            margin-right: 1rem;
+            color: var(--primary);
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 1.5rem;
+        }
+        
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-social a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        /* Page Content */
+        .page-content {
+            display: none;
+        }
+        
+        .page-content.active {
+            display: block;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .mission-content,
+            .history-content,
+            .donation-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .mission-img,
+            .history-img {
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 40px;
+                transition: left 0.3s ease;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .hero-btns .btn {
+                margin: 5px 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .donation-amounts {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1,
+            .about-hero h1,
+            .courses-hero h1,
+            .donation-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .donation-form {
+                padding: 30px 20px;
+            }
+            
+            .donation-amounts {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="fhw-loader">
+        <div class="loader-container">
+          <div class="logo-animation">
+            <span class="letter-f">F</span>
+            <span class="letter-h">H</span>
+            <span class="letter-w">W</span>
+          </div>
+          <div class="loading-text">Fit Home Well</div>
+          <div class="loading-text">..............</div>
+
+        </div>
+      </div>
+      
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo" onclick="showPage('home')">FHW<span>.</span></a>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="#" onclick="showPage('home')">Home</a></li>
+                    <li><a href="#" onclick="showPage('about')">About</a></li>
+                    <li><a href="#" onclick="showPage('courses')">Courses</a></li>
+                    <li><a href="#" onclick="showPage('donation')">Donation</a></li>
+                    <li><a href="#" class="btn" onclick="showPage('donation')">Support Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Home Page -->
+    <div id="home" class="page-content active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Empowering Youth Through Digital Skills</h1>
+                    <p>Fit Home Well (FHW) is transforming lives by providing underprivileged youth with in-demand digital skills for the 21st century job market.</p>
+                    <div class="hero-btns">
+                        <a href="#" class="btn" onclick="showPage('courses')">Explore Courses</a>
+                        <a href="#" class="btn btn-outline" onclick="showPage('donation')">Support Our Cause</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">200+</div>
+                        <div class="stat-text">Youths Trained</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">4</div>
+                        <div class="stat-text">Digital Programs</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">15</div>
+                        <div class="stat-text">Expert Trainers</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">85%</div>
+                        <div class="stat-text">Employment Rate</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission Section -->
+        <section class="mission">
+            <div class="container">
+                <div class="section-subtitle">Our Mission</div>
+                <h2 class="section-title">Bridging the Digital Divide</h2>
+                <p class="section-description">We believe every young person deserves access to quality digital education regardless of their background or financial situation.</p>
+                
+                <div class="mission-content">
+                    <div class="mission-text">
+                        <h2>Creating Opportunities Through Technology</h2>
+                        <p>At Fit Home Well, we're committed to equipping young Ghanaians with practical digital skills that open doors to employment, entrepreneurship, and financial independence.</p>
+                        <p>Our hands-on training programs are designed by industry experts to ensure our graduates are job-ready with relevant, in-demand skills.</p>
+                        
+                        <div class="mission-values">
+                            <div class="value-item">
+                                <div class="value-icon">
+                                    <i class="fas fa-hand-holding-heart"></i>
+                                </div>
+                                <div>
+                                    <h3>Empowerment</h3>
+                                    <p>We believe in the potential of every young person to transform their life through digital skills.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="value-item">
+                                <div class="value-icon">
+                                    <i class="fas fa-laptop-code"></i>
+                                </div>
+                                <div>
+                                    <h3>Practical Learning</h3>
+                                    <p>Our curriculum focuses on hands-on, project-based learning for real-world application.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="value-item">
+                                <div class="value-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div>
+                                    <h3>Community</h3>
+                                    <p>We foster a supportive network of learners, mentors, and industry professionals.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mission-img">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" alt="FHW Students Learning">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Programs Section -->
+        <section class="programs">
+            <div class="container">
+                <div class="section-subtitle">Featured Program</div>
+                <h2 class="section-title">2025 Digital Skills Bootcamp</h2>
+                <p class="section-description">Our flagship program for fresh JHS and SHS graduates looking to launch careers in the digital economy.</p>
+                
+                <div class="programs-grid">
+                    <div class="program-card">
+                        <div class="program-img">
+                            <img src="https://images.unsplash.com/photo-1635236198091-33d5aa8466cc?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Crypto Trading">
+                        </div>
+                        <div class="program-content">
+                            <h3>Crypto Trading</h3>
+                            <p>From beginner to advanced levels, learn how to navigate cryptocurrency markets, analyze trends, and develop trading strategies.</p>
+                            <a href="#" onclick="showPage('courses')">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="program-card">
+                        <div class="program-img">
+                            <img src="https://images.unsplash.com/photo-1649180556628-9ba704115795?q=80&w=1462&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Python Programming">
+                        </div>
+                        <div class="program-content">
+                            <h3>Python Programming</h3>
+                            <p>Master one of the world's most versatile programming languages used in web development, data science, and automation.</p>
+                            <a href="#" onclick="showPage('courses')">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="program-card">
+                        <div class="program-img">
+                            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" alt="Web development">
+                        </div>
+                        <div class="program-content">
+                            <h3>WEB DEVELOPMENT</h3>
+                            <p>Master the art of developing and designing websites with WordPress, a powerful and user-friendly platform that enables you to create professional, dynamic, and fully customizable websites with ease.</p>
+                            <a href="#" onclick="showPage('courses')">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="program-card">
+                        <div class="program-img">
+                            <img src="https://150830374.v2.pressablecdn.com/wp-content/uploads/2023/02/stuart_visual_representation_of_the_future_of_graphic_design_wi_35d8b2a5-a224-4063-8239-359e0ffe4ccd-1-1024x512.jpg" alt="Graphic & Video Editing">
+                        </div>
+                        <div class="program-content">
+                            <h3>Graphic & Video Editing</h3>
+                            <p>Develop creative skills in Adobe Photoshop, Illustrator, Premiere Pro, and After Effects for the booming digital content industry.</p>
+                            <a href="#" onclick="showPage('courses')">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-subtitle">Success Stories</div>
+                <h2 class="section-title">What Our Alumni Say</h2>
+                <p class="section-description">Hear from graduates who have transformed their lives through our programs.</p>
+                
+                <div class="testimonials-container">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>Before FHW, I had no direction after SHS. The crypto trading program opened my eyes to financial opportunities I never knew existed. Now I trade independently and mentor others in my community.</p>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <p>The Python programming course changed my life. Within 3 months of completing the program, I got a remote job with a tech company. I'm now able to support my family and continue learning.</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-img">
+                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Ama Mensah">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Ama Mensah</h4>
+                                    <p>Python Programming Graduate, 2024</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <p>As a graphic design graduate, I've been able to start my own small business creating logos and marketing materials for local businesses. The practical skills I gained at FHW gave me the confidence to pursue my dreams.</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-img">
+                                    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Yaw Boateng">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Yaw Boateng</h4>
+                                    <p>Graphic Design Graduate, 2023</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <!-- About Page -->
+        <div id="about" class="page-content">
+            <!-- About Hero -->
+            <section class="about-hero">
+                <div class="container">
+                    <h1>Our Story & Vision</h1>
+                    <p>Learn about our journey, mission, and the values that drive our work</p>
+                </div>
+            </section>
+        
+            <!-- History Section -->
+            <section class="history">
+                <div class="container">
+                    <div class="section-subtitle">Our History</div>
+                    <h2 class="section-title">From Humble Beginnings</h2>
+                    <p class="section-description">Founded with a vision to bridge the digital skills gap among Ghanaian youth</p>
+                    
+                    <div class="history-content">
+                        <div class="history-text">
+                            <h2>Empowering Youth Since 2022</h2>
+                            <p>Fit Home Well was officially launched on October 31, 2022, by a group of tech professionals and educators who saw the urgent need for practical digital skills training among Ghana's youth.</p>
+                            <p>What began as a small initiative with 20 students in a community center has grown into a recognized NGO that has impacted hundreds of young lives across multiple regions.</p>
+                            
+                            <div class="milestone">
+                                <div class="milestone-year">2022</div>
+                                <div class="milestone-content">
+                                    <h3>Foundation</h3>
+                                    <p>FHW launched with its first cohort of 20 students in Accra, focusing on basic computer literacy and graphic design.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="milestone">
+                                <div class="milestone-year">2023</div>
+                                <div class="milestone-content">
+                                    <h3>Expansion</h3>
+                                    <p>Added Python programming and crypto trading courses in response to market demand, serving 150 students annually.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="milestone">
+                                <div class="milestone-year">2025</div>
+                                <div class="milestone-content">
+                                    <h3>2025 Edition</h3>
+                                    <p>Launched our most comprehensive program yet, with advanced modules and partnerships with tech companies.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="history-img">
+                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="FHW Founders">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- Vision Mission Section -->
+            <section class="vision-mission">
+                <div class="container">
+                    <div class="vm-grid">
+                        <div class="vm-card">
+                            <i class="fas fa-bullseye"></i>
+                            <h3>Our Mission</h3>
+                            <p>To empower underprivileged youth with practical digital skills that enable employment, entrepreneurship, and financial independence in the 21st century economy.</p>
+                        </div>
+                        
+                        <div class="vm-card">
+                            <i class="fas fa-eye"></i>
+                            <h3>Our Vision</h3>
+                            <p>A Ghana where every young person, regardless of background, has access to quality digital education and opportunities to thrive in the global digital economy.</p>
+                        </div>
+                        
+                        <div class="vm-card">
+                            <i class="fas fa-heart"></i>
+                            <h3>Our Values</h3>
+                            <p>Empowerment, Excellence, Innovation, Community, Integrity. We believe in hands-on learning, mentorship, and creating pathways to success.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- 2025 Program Section -->
+            <section class="programs">
+                <div class="container">
+                    <div class="section-subtitle">Current Focus</div>
+                    <h2 class="section-title">2025 Digital Skills Program</h2>
+                    <p class="section-description">Our most ambitious initiative yet, targeting fresh JHS and SHS graduates</p>
+                    
+                    <div class="programs-grid">
+                        <div class="program-card">
+                            <div class="program-img">
+                                <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Crypto Trading">
+                            </div>
+                            <div class="program-content">
+                                <h3>Crypto Trading</h3>
+                                <p>12-week intensive program covering blockchain fundamentals, technical analysis, risk management, and trading psychology.</p>
+                                <a href="#" onclick="showPage('courses')">Course Details <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        
+                        <div class="program-card">
+                            <div class="program-img">
+                                <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" alt="Python Programming">
+                            </div>
+                            <div class="program-content">
+                                <h3>Python Programming</h3>
+                                <p>16-week course teaching Python fundamentals, web development with Django, and introductory data science concepts.</p>
+                                <a href="#" onclick="showPage('courses')">Course Details <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        
+                        <div class="program-card">
+                            <div class="program-img">
+                                <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" alt="Graphic & Video Editing">
+                            </div>
+                            <div class="program-content">
+                                <h3>Graphic & Video Editing</h3>
+                                <p>10-week practical training in Adobe Creative Suite for print, digital media, and video content creation.</p>
+                                <a href="#" onclick="showPage('courses')">Course Details <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <!-- Courses Page -->
+        <div id="courses" class="page-content">
+            <!-- Courses Hero -->
+            <section class="courses-hero">
+                <div class="container">
+                    <h1>Our Digital Skills Programs</h1>
+                    <p>Practical, industry-relevant training designed to launch careers</p>
+                </div>
+            </section>
+        
+            <!-- Courses Section -->
+            <section class="courses">
+                <div class="container">
+                    <div class="section-subtitle">Program Offerings</div>
+                    <h2 class="section-title">2025 Course Catalog</h2>
+                    <p class="section-description">Comprehensive training programs for JHS and SHS graduates</p>
+                    
+                    <!-- Crypto Trading Course -->
+                    <div class="course-card">
+                        <div class="course-header">
+                            <h2>Crypto Trading</h2>
+                            <p>Beginner to Advanced | 12 Weeks | Hands-on Training</p>
+                        </div>
+                        <div class="course-content">
+                            <h3>Course Overview</h3>
+                            <p>This comprehensive program takes students from cryptocurrency fundamentals to advanced trading strategies. Learn how to analyze markets, manage risk, and develop a profitable trading approach.</p>
+                            
+                            <div class="course-features">
+                                <h3>What You'll Learn</h3>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Blockchain technology fundamentals</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Technical analysis and chart reading</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Risk management strategies</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Trading psychology and discipline</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Using trading platforms and tools</span>
+                                </div>
+                            </div>
+                            
+                            <div class="course-features">
+                                <h3>Program Benefits</h3>
+                                <div class="feature-item">
+                                    <i class="fas fa-star"></i>
+                                    <span>Practical, hands-on trading experience</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-star"></i>
+                                    <span>Access to trading simulators</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-star"></i>
+                                    <span>Mentorship from experienced traders</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-star"></i>
+                                    <span>Certificate upon completion</span>
+                                </div>
+                            </div>
+                            
+                            <div class="course-cta">
+                                <a href="#" class="btn">Enroll Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- WordPress Development Course -->
+<div class="course-card">
+    <div class="course-header">
+        <h2>WordPress Development</h2>
+        <p>Beginner to Advanced | 10 Weeks | Hands-on Projects</p>
+    </div>
+    <div class="course-content">
+        <h3>Course Overview</h3>
+        <p>Learn to design, develop, and manage professional websites using WordPress. This course covers everything from setting up your first site to customizing themes, building plugins, and optimizing for performance and SEO.</p>
+        
+        <div class="course-features">
+            <h3>What You'll Learn</h3>
+            <div class="feature-item">
+                <i class="fas fa-check"></i>
+                <span>WordPress installation and configuration</span>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-check"></i>
+                <span>Theme customization and page builders (e.g., Elementor)</span>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-check"></i>
+                <span>Plugin development and management</span>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-check"></i>
+                <span>SEO best practices for WordPress</span>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-check"></i>
+                <span>Website security and optimization techniques</span>
+            </div>
+        </div>
+        
+        <div class="course-features">
+            <h3>Program Benefits</h3>
+            <div class="feature-item">
+                <i class="fas fa-star"></i>
+                <span>Build and launch your own WordPress site</span>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-star"></i>
+                <span>Real client project simulations</span>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-star"></i>
+                <span>Guidance from experienced developers</span>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-star"></i>
+                <span>Completion certificate and portfolio support</span>
+            </div>
+        </div>
+        
+        <div class="course-cta">
+            <a href="#" class="btn">Enroll Now</a>
+        </div>
+    </div>
+</div>
+
+                    
+                    <!-- Python Programming Course -->
+                    <div class="course-card">
+                        <div class="course-header">
+                            <h2>Python Programming</h2>
+                            <p>Comprehensive Training | 16 Weeks | Project-Based</p>
+                        </div>
+                        <div class="course-content">
+                            <h3>Course Overview</h3>
+                            <p>Master one of the world's most versatile programming languages. This course covers Python fundamentals before progressing to web development and introductory data science concepts.</p>
+                            
+                            <div class="course-features">
+                                <h3>What You'll Learn</h3>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Python syntax and core concepts</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Object-oriented programming</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Web development with Django</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Working with databases</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Basic data analysis with Pandas</span>
+                                </div>
+                            </div>
+                            
+                            <div class="course-features">
+                                <h3>Program Benefits</h3>
+                                <div class="feature-item">
+                                    <i class="fas fa-star"></i>
+                                    <span>Build a portfolio of projects</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-star"></i>
+                                    <span>Career guidance and mentorship</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-star"></i>
+                                    <span>Access to coding resources</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-star"></i>
+                                    <span>Job placement assistance</span>
+                                </div>
+                            </div>
+                            
+                            <div class="course-cta">
+                                <a href="#" class="btn">Enroll Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Graphic & Video Editing Course -->
+                    <div class="course-card">
+                        <div class="course-header">
+                            <h2>Graphic & Video Editing</h2>
+                            <p>Creative Skills Training | 10 Weeks | Practical Projects</p>
+                        </div>
+                        <div class="course-content">
+                            <h3>Course Overview</h3>
+                            <p>Develop professional skills in graphic design and video editing using industry-standard tools. Learn to create compelling visual content for print, web, and social media.</p>
+                            
+                            <div class="course-features">
+                                <h3>What You'll Learn</h3>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Adobe Photoshop fundamentals</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Logo and brand identity design</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Video editing with Premiere Pro</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Motion graphics with After Effects</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Social media content creation</span>
+                                </div>
+                            </div>
+                            
+                            <div class="course-features">
+                                <h3>Program Benefits</h3>
+                                <div class="feature-item">
+                                    <i class="fas fa-star"></i>
+                                    <span>Access to Adobe Creative Cloud</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-star"></i>
+                                    <span>Real-world design projects</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-star"></i>
+                                    <span>Portfolio development</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-star"></i>
+                                    <span>Freelancing guidance</span>
+                                </div>
+                            </div>
+                            
+                            <div class="course-cta">
+                                <a href="#" class="btn">Enroll Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <!-- Donation Page -->
+        <div id="donation" class="page-content">
+            <!-- Donation Hero -->
+            <section class="donation-hero">
+                <div class="container">
+                    <h1>Support Our Mission</h1>
+                    <p>Your contribution helps us train more youth in digital skills</p>
+                </div>
+            </section>
+        
+            <!-- Donation Section -->
+            <section class="donation">
+                <div class="container">
+                    <div class="donation-content">
+                        <div class="donation-info">
+                            <h2>Invest in the Future</h2>
+                            <p>Your donation directly supports our mission to empower underprivileged youth with digital skills training. With your help, we can provide more scholarships, upgrade our training facilities, and expand to reach more communities.</p>
+                            <p>100% of donations go toward program costs, including:</p>
+                            
+                            <ul class="impact-list">
+                                <li>
+                                    <i class="fas fa-laptop"></i>
+                                    <span>Training equipment and software licenses</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-book"></i>
+                                    <span>Learning materials and resources</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-user-graduate"></i>
+                                    <span>Scholarships for deserving students</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-chalkboard-teacher"></i>
+                                    <span>Trainer fees and program development</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-building"></i>
+                                    <span>Classroom space and utilities</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="donation-form">
+                            <h2>Make a Donation</h2>
+                            <form>
+                                <div class="form-group">
+                                    <label for="full-name">Full Name</label>
+                                    <input type="text" id="full-name" name="full-name" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>Donation Amount</label>
+                                    <div class="donation-amounts">
+                                        <div class="amount-option">
+                                            <input type="radio" id="amount-50" name="amount" value="50">
+                                            <label for="amount-50">GH₵50</label>
+                                        </div>
+                                        <div class="amount-option">
+                                            <input type="radio" id="amount-100" name="amount" value="100">
+                                            <label for="amount-100">GH₵100</label>
+                                        </div>
+                                        <div class="amount-option">
+                                            <input type="radio" id="amount-200" name="amount" value="200">
+                                            <label for="amount-200">GH₵200</label>
+                                        </div>
+                                        <div class="amount-option">
+                                            <input type="radio" id="amount-500" name="amount" value="500">
+                                            <label for="amount-500">GH₵500</label>
+                                        </div>
+                                        <div class="amount-option">
+                                            <input type="radio" id="amount-1000" name="amount" value="1000">
+                                            <label for="amount-1000">GH₵1000</label>
+                                        </div>
+                                    </div>
+                                    <div class="custom-amount">
+                                        <input type="number" id="custom-amount" name="custom-amount" placeholder="Other Amount (GH₵)">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group donation-type">
+                                    <label>Donation Type</label>
+                                    <div>
+                                        <input type="radio" id="one-time" name="donation-type" value="one-time" checked>
+                                        <label for="one-time">One-time</label>
+                                        
+                                        <input type="radio" id="monthly" name="donation-type" value="monthly">
+                                        <label for="monthly">Monthly</label>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="message">Message (Optional)</label>
+                                    <textarea id="message" name="message" placeholder="Any special instructions or notes"></textarea>
+                                </div>
+                                
+                                <button type="submit" class="submit-btn">Donate Now</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-column">
+                        <h3>About FHW</h3>
+                        <p>Fit Home Well is a non-governmental organization dedicated to empowering Ghanaian youth through practical digital skills training.</p>
+                        <div class="footer-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Quick Links</h3>
+                        <ul class="footer-links">
+                            <li><a href="#" onclick="showPage('home')">Home</a></li>
+                            <li><a href="#" onclick="showPage('about')">About Us</a></li>
+                            <li><a href="#" onclick="showPage('courses')">Courses</a></li>
+                            <li><a href="#" onclick="showPage('donation')">Donate</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">FAQ</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Programs</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">Crypto Trading</a></li>
+                            <li><a href="#">Python Programming</a></li>
+                            <li><a href="#">Graphic Design</a></li>
+                            <li><a href="#">Video Editing</a></li>
+                            <li><a href="#">Upcoming Courses</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Contact Us</h3>
+                        <ul class="footer-contact-info">
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Accra - Ghana</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone-alt"></i>
+                                <span>+233 54 836 9261 </span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone-alt"></i>
+                                <span>+233 54 836 9261 </span>
+                            </li>
+
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <span>info@fithomewell@gmail.com</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-clock"></i>
+                                <span>24/7 services</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Fit Home Well. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: var(--accent);"></i> for Ghana's Youth</p>
+                </div>
+            </div>
+        </footer>
+        
+        <script>
+
+window.addEventListener('load', function() {
+  const loader = document.querySelector('.fhw-loader');
+  setTimeout(() => {
+    loader.classList.add('hidden');
+  }, 3000); // Adjust timing as needed
+});
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                    ? '<i class="fas fa-times"></i>' 
+                    : '<i class="fas fa-bars"></i>';
+            });
+            
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                });
+            });
+            
+            // Page Navigation
+            function showPage(pageId) {
+                // Hide all pages
+                document.querySelectorAll('.page-content').forEach(page => {
+                    page.classList.remove('active');
+                });
+                
+                // Show selected page
+                document.getElementById(pageId).classList.add('active');
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
+            }
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Sticky header on scroll
+            window.addEventListener('scroll', () => {
+                const header = document.querySelector('header');
+                header.classList.toggle('sticky', window.scrollY > 0);
+            });
+            
+            // Form submission
+            const donationForm = document.querySelector('.donation-form form');
+            if (donationForm) {
+                donationForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    alert('Thank you for your donation! You will be redirected to our secure payment gateway.');
+                    donationForm.reset();
+                });
+            }
+            
+            // Course enrollment forms
+            const enrollForms = document.querySelectorAll('.course-cta .btn');
+            enrollForms.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    alert('Thank you for your interest! Our enrollment team will contact you with next steps.');
+                });
+            });
+        </script>
